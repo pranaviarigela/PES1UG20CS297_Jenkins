@@ -6,21 +6,21 @@ pipeline {
             steps {
                 sh 'g++ temp.cpp -o temp'
                  build job: 'PES1UG20CS297-1', wait: false
-                 echo 'Build by CS297 successful'
+                 eho 'Build by CS297 successful'
             }
         }
 
         stage('Test') {
             steps {
                 sh 'cat temp.cpp'
-                echo 'Test by CS297 successful'
+                eho 'Test by CS297 successful'
             }
         }
 
         stage('Deploy') {
             steps {
                
-                echo 'Deploy by CS297 successful'
+                eho 'Deploy by CS297 successful'
             }
         }
     }
@@ -28,7 +28,7 @@ pipeline {
     post {
         failure {
             
-                echo 'Pipeline Failed'
+                eho 'Pipeline Failed'
           
         }
     }
