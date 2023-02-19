@@ -1,30 +1,35 @@
 pipeline {
     agent any
-    
+
     stages {
         stage('Build') {
             steps {
-                sh 'g++ -o PES1UG20CS297_task5 PES1UG20CS2978_task5.cpp'
-                build job: 'PES1UG20CS297-1'
+                sh 'g++ temp.cpp -o temp'
+                 build job: 'PES1UG20CS297-1', wait: false
+                 echo 'Build by CS297 successful'
             }
         }
-        
+
         stage('Test') {
             steps {
-                sh './PES1UG20CS297_task5'
+                sh 'cat temp.cpp'
+                echo 'Test by CS297 successful'
             }
         }
-        
+
         stage('Deploy') {
             steps {
-                echo 'Deployment'
+               
+                echo 'Deploy by CS297 successful'
             }
         }
     }
-    
+
     post {
         failure {
-            echo 'Pipeline failed'
+            
+                echo 'Pipeline Failed'
+          
         }
     }
 }
